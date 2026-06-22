@@ -49,7 +49,17 @@ public class CustomerDAO {
 	//----------------END-----------Add Customer--------------------
 	
 	//-----------------START ------------GET ALL customers--------------------
- static List<CustomerBean>getAllCustomers()throws SQLException{
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : get all location from table
+	 * @param : Nothing
+	 * @throes : SQL Exception
+	 * @return : list
+	 * @see : DBDAO.java
+	 */
+	public static List<CustomerBean>getAllCustomers()throws SQLException{
 		List<CustomerBean>customers = new ArrayList<CustomerBean>();
 
 		if(conn == null) {
@@ -76,6 +86,16 @@ public class CustomerDAO {
 //----------------end ----get all customers ----------------------
 	
 //----------------Start ----customer Edit----------------------
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : Edit table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return :LocationBean object(model)
+	 * @see : DBDAO.java
+	 */
 
 	public static CustomerBean editCustomers(CustomerBean customerBean)throws SQLException{
 		CustomerBean customerEdit = new CustomerBean();
@@ -103,7 +123,16 @@ public class CustomerDAO {
 	//----------------End ----customer Edit----------------------	
 	
 	//----------------Start ----customer update----------------------
-
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : update table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return : flag
+	 * @see : DBDAO.java
+	 */
 	
 	public static boolean updatecustomer(CustomerBean customerBean) throws SQLException{
 		boolean updateFlag= false;
@@ -130,7 +159,16 @@ public class CustomerDAO {
 
 	//----------------Start ----customer delete----------------------
 	
-
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : delete table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return : flag
+	 * @see : DBDAO.java
+	 */
 	public static boolean deleteCustomer(CustomerBean customerBean) throws SQLException{
 		boolean DeleteFlag= false;
 		if(conn == null) {
@@ -149,7 +187,16 @@ public class CustomerDAO {
 	}
 	//----------------end ----customer delete----------------------
 	//-----------------START ------------GET ALL company name--------------------
-	
+		/**
+		 * @author : Mary
+		 * @Date : 21-06-2026
+		 * @version : v1.0
+		 * @purpose : get all location from table
+		 * @param : Nothing
+		 * @throes : SQL Exception
+		 * @return : list
+		 * @see : DBDAO.java
+		 */
 		public static List<CustomerBean>getAllCompanyName()throws SQLException{
 			List<CustomerBean>company = new ArrayList<CustomerBean>();
 

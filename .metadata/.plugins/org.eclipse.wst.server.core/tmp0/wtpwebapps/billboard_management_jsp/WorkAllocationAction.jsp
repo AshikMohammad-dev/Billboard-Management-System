@@ -3,11 +3,11 @@
 <%@ page import="java.sql.Date" %>
 
 <%
-    int inspectorId      = Integer.parseInt(request.getParameter("inspectorId"));
-    int purchaseId       = Integer.parseInt(request.getParameter("purchaseId"));
-    String workDesc      = request.getParameter("workDescription");
-    String dateStr       = request.getParameter("allocationDate");
-    String status        = request.getParameter("status");
+    int inspectorId = Integer.parseInt(request.getParameter("inspectorId"));
+    int purchaseId = Integer.parseInt(request.getParameter("purchaseId"));
+    String workDesc = request.getParameter("workDescription");
+    String dateStr = request.getParameter("allocationDate");
+    String status = request.getParameter("status");
 
     WorkAllocationBean workBean = new WorkAllocationBean();
     workBean.setInspectorId(inspectorId);

@@ -24,7 +24,6 @@ The system allows administrators to manage billboard locations, billboard sizes,
 ### Frontend
 
 * HTML
-* CSS
 * JavaScript
 * JSP
 

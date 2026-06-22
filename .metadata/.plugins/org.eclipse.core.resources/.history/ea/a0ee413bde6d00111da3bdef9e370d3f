@@ -86,6 +86,16 @@ public class SizeDAO {
 	// ----------------End ----size Edit----------------------
 
 	// ----------------Start ----size update----------------------
+	/**
+	 * @author : Mary
+	 * @Date : 18-06-2026
+	 * @version : v1.0
+	 * @purpose : update table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return : flag
+	 * @see : DBDAO.java
+	 */
 
 	public static boolean updateSize(SizeBean sizeBean) throws SQLException {
 		boolean updateFlag = false;
@@ -110,7 +120,16 @@ public class SizeDAO {
 
 	// ----------------Start ----size delete----------------------
 
-
+	/**
+	 * @author : Mary
+	 * @Date : 18-06-2026
+	 * @version : v1.0
+	 * @purpose : delete table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return : flag
+	 * @see : DBDAO.java
+	 */
 	public static boolean deletesize(SizeBean sizeBean) throws SQLException {
 		boolean DeleteFlag = false;
 		if (conn == null) {

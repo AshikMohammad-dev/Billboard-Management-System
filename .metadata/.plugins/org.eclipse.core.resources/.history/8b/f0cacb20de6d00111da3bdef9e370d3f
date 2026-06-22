@@ -41,7 +41,17 @@ public class DBDAO {
 	
 	//--------------------start------- database connection------------
 	
-
+		/**
+		 * @author : Mary
+		 * @Date   : -06-2026
+		 * @version : v1.0
+		 * @purpose : database connection 
+		 * @param : Nothing
+		 * @throws : Exception in case of missing driver
+		 * @return : Connection
+		 
+		 */
+	
 	public static void connect() throws ClassNotFoundException,SQLException{
 		dbInit();
 		try {

@@ -1,0 +1,31 @@
+package com.mvc.dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class DBConnection {
+	
+	//------------------start ----------get Connection
+		/**
+		 * @author : Ashik
+		 * @Date   : 19-06-2026
+		 * @version : v1.0
+		 * @purpose : get Connection 
+		 * @param : Nothing
+		 * @throws : SQLException
+		 * @return : connection
+		 */
+	
+	public static Connection getDbConnection()throws SQLException{
+		Connection con = null;
+		try {
+			DBDAO.connect();
+			con = DBDAO.getDbCon();
+			
+		}catch(ClassNotFoundException |SQLException e) {
+			e.printStackTrace();
+		}
+		return con;
+	}
+
+}

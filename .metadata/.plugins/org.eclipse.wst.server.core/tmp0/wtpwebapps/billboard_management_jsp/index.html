@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>::Login::</title>
+	<script>
+			function valForm()
+			{	
+				
+				if(document.loginForm.username.value=="")
+				{
+					alert("Enter Username");
+					document.loginForm.username.focus();
+					return false;
+				}
+				if(document.loginForm.password.value=="")
+				{
+					alert("Enter Password");
+					document.loginForm.password.focus();
+					return false;
+				}
+				document.loginForm.submit();			
+			}
+		</script>
+	
+</head>
+<body>
+	<h1 align ="center">LOGIN</h1>
+	<form name="loginForm" method="post" action="LoginActionController.jsp" >
+		Username<input type="text" name="username"/><br><br>
+		Password<input type="password" name="password"/><br><br>
+		<br> <input type="submit" value="Sign In" onclick ="return valForm();"/>
+	</form>
+</body>
+</html>

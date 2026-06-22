@@ -1,0 +1,223 @@
+package com.mvc.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mvc.bean.CustomerBean;
+
+
+public class CustomerDAO {
+	static Connection conn = null;
+	static PreparedStatement pstmt =null;
+	static ResultSet rs = null;
+	
+	//-------------------Start---------Add Customers--------------------
+	
+	/**
+	 * @author : Ashik
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : add location to table
+	 * @param : Nothing
+	 * @throes : SQL Exception
+	 * @return : flag
+	 * @see : DBDAO.java
+	 */
+	public static boolean addCustomer(CustomerBean customerBean)throws SQLException{
+		boolean addFlag = false;
+		if(conn == null) {
+			conn = DBConnection.getDbConnection();
+		}
+		try {
+			pstmt =conn.prepareStatement("INSERT INTO customer(company_name,contact_person,phone)VALUES(?,?,?)");
+			pstmt.setString(1, customerBean.getCompanyName());
+			pstmt.setString(2, customerBean.getContactPerson());
+			pstmt.setLong(3, customerBean.getPhone());
+			
+			pstmt.executeUpdate();
+			addFlag = true;
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+		
+		return addFlag;
+	}
+	//----------------END-----------Add Customer--------------------
+	
+	//-----------------START ------------GET ALL customers--------------------
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : get all location from table
+	 * @param : Nothing
+	 * @throes : SQL Exception
+	 * @return : list
+	 * @see : DBDAO.java
+	 */
+	public static List<CustomerBean>getAllCustomers()throws SQLException{
+		List<CustomerBean>customers = new ArrayList<CustomerBean>();
+
+		if(conn == null) {
+			conn = DBConnection.getDbConnection();
+		}
+		try {
+			pstmt =conn.prepareStatement("SELECT * FROM customer");
+			rs =pstmt.executeQuery();
+			while(rs.next()) {
+				CustomerBean customerBean = new CustomerBean();
+				customerBean.setCustomerId(rs.getInt(1));
+				customerBean.setCompanyName(rs.getString(2));
+				customerBean.setContactPerson(rs.getString(3));
+				customerBean.setPhone(rs.getLong(4));
+				customers.add(customerBean);
+			}	
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return customers;
+	}
+
+
+//----------------end ----get all customers ----------------------
+	
+//----------------Start ----customer Edit----------------------
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : Edit table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return :LocationBean object(model)
+	 * @see : DBDAO.java
+	 */
+
+	public static CustomerBean editCustomers(CustomerBean customerBean)throws SQLException{
+		CustomerBean customerEdit = new CustomerBean();
+		if(conn == null) {
+			 conn = DBConnection.getDbConnection();
+		 }
+		try {
+		pstmt = conn.prepareStatement("select * from customer where customer_id=?");
+		pstmt.setInt(1,customerBean.getCustomerId());
+		rs = pstmt.executeQuery();
+		while(rs.next()) {
+			
+			customerEdit.setCustomerId(rs.getInt(1));
+			customerEdit.setCompanyName(rs.getString(2));
+			customerEdit.setContactPerson(rs.getString(3));
+			customerEdit.setPhone(rs.getLong(4));
+		}
+		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return customerEdit;
+	}
+	
+	//----------------End ----customer Edit----------------------	
+	
+	//----------------Start ----customer update----------------------
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : update table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return : flag
+	 * @see : DBDAO.java
+	 */
+	
+	public static boolean updatecustomer(CustomerBean customerBean) throws SQLException{
+		boolean updateFlag= false;
+		if(conn == null) {
+			 conn = DBConnection.getDbConnection();
+		 }
+		try {
+			
+			pstmt =conn.prepareStatement("update customer set company_name=?,contact_person=?,phone=? where customer_id=?");
+			pstmt.setString(1, customerBean.getCompanyName());
+			pstmt.setString(2, customerBean.getContactPerson());
+			pstmt.setLong(3, customerBean.getPhone());
+			pstmt.setInt(4, customerBean.getCustomerId());
+			pstmt.executeUpdate();
+			 
+			 updateFlag = true;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return updateFlag;
+	}
+
+	//----------------end ----customer update---------------------
+
+	//----------------Start ----customer delete----------------------
+	
+	/**
+	 * @author : Mary
+	 * @Date : 20-06-2026
+	 * @version : v1.0
+	 * @purpose : delete table
+	 * @param : Nothing
+	 * @throws : SQL Exception
+	 * @return : flag
+	 * @see : DBDAO.java
+	 */
+	public static boolean deleteCustomer(CustomerBean customerBean) throws SQLException{
+		boolean DeleteFlag= false;
+		if(conn == null) {
+			 conn = DBConnection.getDbConnection();
+		 }
+		try {
+			pstmt =conn.prepareStatement("delete from customer where customer_id=?");
+			pstmt.setInt(1,customerBean.getCustomerId());
+			 pstmt.executeUpdate();
+			 
+			 DeleteFlag = true;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return DeleteFlag;
+	}
+	//----------------end ----customer delete----------------------
+	//-----------------START ------------GET ALL company name--------------------
+		/**
+		 * @author : Mary
+		 * @Date : 21-06-2026
+		 * @version : v1.0
+		 * @purpose : get all location from table
+		 * @param : Nothing
+		 * @throes : SQL Exception
+		 * @return : list
+		 * @see : DBDAO.java
+		 */
+		public static List<CustomerBean>getAllCompanyName()throws SQLException{
+			List<CustomerBean>company = new ArrayList<CustomerBean>();
+
+			if(conn == null) {
+				conn = DBConnection.getDbConnection();
+			}
+			try {
+				pstmt =conn.prepareStatement("SELECT customer_id,company_name FROM customer");
+				rs =pstmt.executeQuery();
+				while(rs.next()) {
+					CustomerBean customerBean = new CustomerBean();
+					customerBean.setCustomerId(rs.getInt(1));
+					customerBean.setCompanyName(rs.getString(2));
+					company.add(customerBean);
+				}	
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return company;
+		}
+
+
+	//----------------end ----get all company name ----------------------
+}

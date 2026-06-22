@@ -1,0 +1,24 @@
+<%@ include file="Header.jsp" %>
+
+	<script>
+			function valForm()
+			{	
+				
+				if(document.addSizeForm.locationsize.value=="")
+				{
+					alert("Enter Location Size");
+					document.addSizeForm.locationsize.focus();
+					return false;
+				}
+				document.addSizeForm.submit();			
+			}
+		</script>
+
+	
+	<h1 align ="center">ADD SIZE</h1>
+	<form name="addSizeForm" method="post" action="AddSizeAction.jsp" >
+		Billboard Size<input type="text" name="billboardSize"/><br><br>
+		<br> <input type="submit" value="ADD" onclick ="return valForm();"/>
+	</form>
+</body>
+</html>

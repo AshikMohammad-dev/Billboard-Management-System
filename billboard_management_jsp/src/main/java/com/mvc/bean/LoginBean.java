@@ -1,0 +1,41 @@
+package com.mvc.bean;
+
+public class LoginBean {
+	private int loginId;
+	private String loginUsername;
+	private String loginPassword;
+	private String LoginRole;
+
+	public int getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(int loginId) {
+		this.loginId = loginId;
+	}
+
+	public String getLoginUsername() {
+		return loginUsername;
+	}
+
+	public void setLoginUsername(String loginUsername) {
+		this.loginUsername = loginUsername;
+	}
+
+	public String getLoginPassword() {
+		return loginPassword;
+	}
+
+	public void setLoginPassword(String loginPassword) {
+		this.loginPassword = loginPassword;
+	}
+
+	public String getLoginRole() {
+		return LoginRole;
+	}
+
+	public void setLoginRole(String loginRole) {
+		LoginRole = loginRole;
+	}
+
+}

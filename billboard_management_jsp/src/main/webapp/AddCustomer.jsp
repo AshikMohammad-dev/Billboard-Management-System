@@ -1,0 +1,39 @@
+<%@ include file="Header.jsp"%>
+<script>
+			function valForm()
+			{	
+				
+				if(document.addCustomerForm.companyName.value=="")
+				{
+					alert("Enter Company Name");
+					document.addCustomerForm.companyName.focus();
+					return false;
+				}
+				if(document.addCustomerForm.customerName.value=="")
+				{
+					alert("Enter Customer Name");
+					document.addCustomerForm.customerName.focus();
+					return false;
+				}
+				if(document.addCustomerForm.phone.value=="")
+				{
+					alert("Enter phone number");
+					document.addCustomerForm.phone.focus();
+					return false;
+				}
+				document.addCustomerForm.submit();			
+			}
+		</script>
+
+<h1 align="center">ADD CUSTOMER</h1>
+<form name="addCustomerForm" method="post"
+	action="AddCustomerAction.jsp">
+	Company Name<input type="text" name="companyName" /><br>
+	<br> Contact Person<input type="text" name="contactPerson" /><br>
+	<br> Phone<input type="text" name="phone" /><br>
+	<br> <br> <input type="submit" value="ADD"
+		onclick="return valForm();" />
+</form>
+
+</body>
+</html>

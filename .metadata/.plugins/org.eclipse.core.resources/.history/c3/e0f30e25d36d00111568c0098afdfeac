@@ -1,0 +1,41 @@
+package com.mvc.bean;
+
+public class InspectorBean {
+
+    private int inspectorId;
+    private int loginId;
+    private String inspectorName;
+    private long phone;
+
+    public int getInspectorId() {
+        return inspectorId;
+    }
+
+    public void setInspectorId(int inspectorId) {
+        this.inspectorId = inspectorId;
+    }
+
+    public int getLoginId() {
+        return loginId;
+    }
+
+    public void setLoginId(int loginId) {
+        this.loginId = loginId;
+    }
+
+    public String getInspectorName() {
+        return inspectorName;
+    }
+
+    public void setInspectorName(String inspectorName) {
+        this.inspectorName = inspectorName;
+    }
+
+    public long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(long phone) {
+        this.phone = phone;
+    }
+}

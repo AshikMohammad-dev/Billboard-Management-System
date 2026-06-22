@@ -1,0 +1,71 @@
+package com.mvc.bean;
+
+import java.sql.Date;
+
+public class BillboardPurchaseBean {
+	private int purchase_id;
+	private int customer_id;
+	private String companyName;	
+	private int locsize_id;
+	private String locationName;
+	private String size;
+	private Date start_date;
+	private int duration;
+	private float amount;
+	public int getPurchase_id() {
+		return purchase_id;
+	}
+	public void setPurchase_id(int purchase_id) {
+		this.purchase_id = purchase_id;
+	}
+	public int getCustomer_id() {
+		return customer_id;
+	}
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public int getLocsize_id() {
+		return locsize_id;
+	}
+	public void setLocsize_id(int locsize_id) {
+		this.locsize_id = locsize_id;
+	}
+	public String getLocationName() {
+		return locationName;
+	}
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
+	public Date getStart_date() {
+		return start_date;
+	}
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+	public int getDuration() {
+		return duration;
+	}
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+	public float getAmount() {
+		return amount;
+	}
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
+	
+	
+}

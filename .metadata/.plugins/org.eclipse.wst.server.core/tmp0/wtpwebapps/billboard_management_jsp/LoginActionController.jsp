@@ -1,0 +1,43 @@
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page errorPage ="Error.jsp" %>
+<%@page import ="com.mvc.bean.LoginBean" %>
+<%@page import ="com.mvc.dao.LoginDAO" %>
+
+<%
+// get values from view index.html
+String username = request.getParameter("username");
+String password = request.getParameter("password");
+
+String user ="";// http session setting
+String role = "";//authentication ->allow access |admin/inspector
+
+//MVC archetecture set values to model class loginbean
+LoginBean loginbean =new LoginBean();
+
+loginbean.setLoginUsername(username);
+loginbean.setLoginPassword(password);
+
+LoginBean loginUserDetails =LoginDAO.checkLogin(loginbean);
+
+// get values from return object
+
+	user = loginUserDetails.getLoginUsername();
+	role = loginUserDetails.getLoginRole();
+	
+	// session object
+session.setAttribute("username",user);
+	
+if(role.equals("admin")){
+	response.sendRedirect("AdminHome.jsp");
+}
+else if(role.equals("inspector")){
+	response.sendRedirect("InspectorHome.jsp");
+}
+else{
+	response.sendRedirect("Error.jsp");
+}
+	
+
+%>
